@@ -10,7 +10,9 @@
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
     <orderEntry type="inheritedJdk" />
-    <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="org.apache.opennlp:opennlp-tools:1.7.2" level="project" />
+    <orderEntry type="library" exported="" name="org.apache.lucene:lucene-core:6.4.2" level="project" />
+    <orderEntry type="library" exported="" name="org.apache.lucene:lucene-queryparser:6.4.2" level="project" />
+    <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>

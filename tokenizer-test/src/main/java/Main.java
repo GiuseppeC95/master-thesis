@@ -1,9 +1,8 @@
-import opennlp.tools.tokenize.*;
+import opennlp.tools.tokenize.SimpleTokenizer;
+import opennlp.tools.tokenize.WhitespaceTokenizer;
 import opennlp.tools.util.InvalidFormatException;
 
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 
 /**
  * Created by giuseppe on 23/03/17.
@@ -30,9 +29,7 @@ public class Main {
         for(String token : tokens)
             System.out.print(token+ "|");
 
-        /*---------------------------WHITESPACE TOKENIZER--------------------------------
-
-         */
+        /*---------------------------WHITESPACE TOKENIZER--------------------------------*/
         System.out.println("\n\n-----------------------------WHITESPACE TOKENIZER----------------------------------");
 
         //Instantiating whitespaceTokenizer class
@@ -44,5 +41,6 @@ public class Main {
         //Printing the tokens
         for(String token : tokensW)
             System.out.print(token+"|");
+
     }
 }
