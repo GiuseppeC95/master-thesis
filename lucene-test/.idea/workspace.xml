@@ -20,7 +20,7 @@
       <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="326">
+            <state relative-caret-position="522">
               <caret line="29" column="12" lean-forward="false" selection-start-line="29" selection-start-column="12" selection-end-line="29" selection-end-column="12" />
               <folding />
             </state>
@@ -57,17 +57,17 @@
                   <point x="82.0" y="-0.0" />
                   <point x="-66.0" y="-0.0" />
                 </edge>
-                <edge source="org.apache.lucene:lucene-analyzers-common:jar:6.5.0" target="org.apache.lucene:lucene-core:jar:6.5.0">
-                  <point x="104.5" y="-0.0" />
-                  <point x="477.0" y="18.166666666666664" />
-                  <point x="-55.5" y="-0.0" />
-                </edge>
                 <edge source="yeerida:lucene-test:1.0-SNAPSHOT" target="org.apache.lucene:lucene-core:jar:6.5.0">
                   <point x="54.0" y="-10.333333333333336" />
                   <point x="188.0" y="0.0" />
                   <point x="397.0" y="0.0" />
                   <point x="477.0" y="7.833333333333329" />
                   <point x="-55.5" y="-10.333333333333336" />
+                </edge>
+                <edge source="org.apache.lucene:lucene-analyzers-common:jar:6.5.0" target="org.apache.lucene:lucene-core:jar:6.5.0">
+                  <point x="104.5" y="-0.0" />
+                  <point x="477.0" y="18.166666666666664" />
+                  <point x="-55.5" y="-0.0" />
                 </edge>
                 <edge source="yeerida:lucene-test:1.0-SNAPSHOT" target="org.apache.lucene:lucene-queryparser:jar:6.5.0">
                   <point x="54.0" y="10.333333333333336" />
@@ -80,9 +80,9 @@
                   <point x="-70.0" y="-0.0" />
                 </edge>
               </edges>
-              <settings layout="Hierarchic Group" zoom="1.0" x="-147.5" y="31.0" />
+              <settings layout="Hierarchic Group" zoom="1.0" x="-147.0" y="31.0" />
               <SelectedNodes>
-                <node>org.apache.lucene:lucene-queryparser:jar:6.5.0/org.apache.lucene:lucene-sandbox:jar:6.5.0</node>
+                <node>yeerida:lucene-test:1.0-SNAPSHOT</node>
               </SelectedNodes>
               <Categories />
               <VISIBILITY>All</VISIBILITY>
@@ -93,7 +93,7 @@
       <file leaf-file-name="IndexingExample.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/IndexingExample.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="142">
+            <state relative-caret-position="18">
               <caret line="64" column="40" lean-forward="false" selection-start-line="64" selection-start-column="40" selection-end-line="64" selection-end-column="40" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
@@ -139,7 +139,7 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="992" />
     <option name="y" value="52" />
-    <option name="width" value="928" />
+    <option name="width" value="918" />
     <option name="height" value="1028" />
   </component>
   <component name="ProjectView">
@@ -667,46 +667,47 @@
       <updated>1490620492707</updated>
       <workItem from="1490620496850" duration="2410000" />
       <workItem from="1490622991977" duration="7229000" />
+      <workItem from="1490862065562" duration="5000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9639000" />
+    <option name="totallyTimeSpent" value="9644000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="992" y="52" width="928" height="1028" extended-state="4" />
+    <frame x="992" y="52" width="918" height="1028" extended-state="4" />
     <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960325" sideWeight="0.5105121" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3486911" sideWeight="0.48948786" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960325" sideWeight="0.49811321" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.67564654" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960325" sideWeight="0.4916442" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3486911" sideWeight="0.48948786" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.67564654" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960325" sideWeight="0.49811321" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960325" sideWeight="0.4916442" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -724,6 +725,86 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="522">
+          <caret line="29" column="12" lean-forward="false" selection-start-line="29" selection-start-column="12" selection-end-line="29" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://MAVEN/yeerida:lucene-test:1.0-SNAPSHOT">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>MAVEN</ID>
+          <OriginalElement>yeerida:lucene-test:1.0-SNAPSHOT</OriginalElement>
+          <nodes>
+            <node x="0.0" y="10.5">yeerida:lucene-test:1.0-SNAPSHOT</node>
+            <node x="491.5" y="2.6666666666666643">org.apache.lucene:lucene-core:jar:6.5.0</node>
+            <node x="188.0" y="10.5">org.apache.lucene:lucene-analyzers-common:jar:6.5.0</node>
+            <node x="210.5" y="82.6190476190476">org.apache.lucene:lucene-queryparser:jar:6.5.0</node>
+            <node x="481.0" y="81.5">org.apache.lucene:lucene-queryparser:jar:6.5.0/org.apache.lucene:lucene-queries:jar:6.5.0</node>
+            <node x="477.0" y="152.5">org.apache.lucene:lucene-queryparser:jar:6.5.0/org.apache.lucene:lucene-sandbox:jar:6.5.0</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="org.apache.lucene:lucene-queryparser:jar:6.5.0" target="org.apache.lucene:lucene-core:jar:6.5.0">
+              <point x="82.0" y="-10.333333333333329" />
+              <point x="397.0" y="87.78571428571428" />
+              <point x="477.0" y="28.5" />
+              <point x="-55.5" y="10.333333333333336" />
+            </edge>
+            <edge source="yeerida:lucene-test:1.0-SNAPSHOT" target="org.apache.lucene:lucene-analyzers-common:jar:6.5.0">
+              <point x="54.0" y="-0.0" />
+              <point x="-104.5" y="-0.0" />
+            </edge>
+            <edge source="org.apache.lucene:lucene-queryparser:jar:6.5.0" target="org.apache.lucene:lucene-queryparser:jar:6.5.0/org.apache.lucene:lucene-queries:jar:6.5.0">
+              <point x="82.0" y="-0.0" />
+              <point x="-66.0" y="-0.0" />
+            </edge>
+            <edge source="yeerida:lucene-test:1.0-SNAPSHOT" target="org.apache.lucene:lucene-core:jar:6.5.0">
+              <point x="54.0" y="-10.333333333333336" />
+              <point x="188.0" y="0.0" />
+              <point x="397.0" y="0.0" />
+              <point x="477.0" y="7.833333333333329" />
+              <point x="-55.5" y="-10.333333333333336" />
+            </edge>
+            <edge source="org.apache.lucene:lucene-analyzers-common:jar:6.5.0" target="org.apache.lucene:lucene-core:jar:6.5.0">
+              <point x="104.5" y="-0.0" />
+              <point x="477.0" y="18.166666666666664" />
+              <point x="-55.5" y="-0.0" />
+            </edge>
+            <edge source="yeerida:lucene-test:1.0-SNAPSHOT" target="org.apache.lucene:lucene-queryparser:jar:6.5.0">
+              <point x="54.0" y="10.333333333333336" />
+              <point x="188.0" y="98.1190476190476" />
+              <point x="-82.0" y="-0.0" />
+            </edge>
+            <edge source="org.apache.lucene:lucene-queryparser:jar:6.5.0" target="org.apache.lucene:lucene-queryparser:jar:6.5.0/org.apache.lucene:lucene-sandbox:jar:6.5.0">
+              <point x="82.0" y="10.333333333333343" />
+              <point x="397.0" y="108.45238095238095" />
+              <point x="-70.0" y="-0.0" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="1.0" x="-147.0" y="31.0" />
+          <SelectedNodes>
+            <node>yeerida:lucene-test:1.0-SNAPSHOT</node>
+          </SelectedNodes>
+          <Categories />
+          <VISIBILITY>All</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/IndexingExample.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="864">
+          <caret line="64" column="40" lean-forward="false" selection-start-line="64" selection-start-column="40" selection-end-line="64" selection-end-column="40" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
@@ -772,17 +853,17 @@
               <point x="82.0" y="-0.0" />
               <point x="-66.0" y="-0.0" />
             </edge>
-            <edge source="org.apache.lucene:lucene-analyzers-common:jar:6.5.0" target="org.apache.lucene:lucene-core:jar:6.5.0">
-              <point x="104.5" y="-0.0" />
-              <point x="477.0" y="18.166666666666664" />
-              <point x="-55.5" y="-0.0" />
-            </edge>
             <edge source="yeerida:lucene-test:1.0-SNAPSHOT" target="org.apache.lucene:lucene-core:jar:6.5.0">
               <point x="54.0" y="-10.333333333333336" />
               <point x="188.0" y="0.0" />
               <point x="397.0" y="0.0" />
               <point x="477.0" y="7.833333333333329" />
               <point x="-55.5" y="-10.333333333333336" />
+            </edge>
+            <edge source="org.apache.lucene:lucene-analyzers-common:jar:6.5.0" target="org.apache.lucene:lucene-core:jar:6.5.0">
+              <point x="104.5" y="-0.0" />
+              <point x="477.0" y="18.166666666666664" />
+              <point x="-55.5" y="-0.0" />
             </edge>
             <edge source="yeerida:lucene-test:1.0-SNAPSHOT" target="org.apache.lucene:lucene-queryparser:jar:6.5.0">
               <point x="54.0" y="10.333333333333336" />
@@ -795,9 +876,9 @@
               <point x="-70.0" y="-0.0" />
             </edge>
           </edges>
-          <settings layout="Hierarchic Group" zoom="1.0" x="-147.5" y="31.0" />
+          <settings layout="Hierarchic Group" zoom="1.0" x="-147.0" y="31.0" />
           <SelectedNodes>
-            <node>org.apache.lucene:lucene-queryparser:jar:6.5.0/org.apache.lucene:lucene-sandbox:jar:6.5.0</node>
+            <node>yeerida:lucene-test:1.0-SNAPSHOT</node>
           </SelectedNodes>
           <Categories />
           <VISIBILITY>All</VISIBILITY>
@@ -806,7 +887,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="326">
+        <state relative-caret-position="522">
           <caret line="29" column="12" lean-forward="false" selection-start-line="29" selection-start-column="12" selection-end-line="29" selection-end-column="12" />
           <folding />
         </state>
@@ -814,7 +895,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/IndexingExample.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="142">
+        <state relative-caret-position="18">
           <caret line="64" column="40" lean-forward="false" selection-start-line="64" selection-start-column="40" selection-end-line="64" selection-end-column="40" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
