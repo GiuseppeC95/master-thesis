@@ -1,3 +1,6 @@
+import opennlp.tools.postag.POSModel;
+import opennlp.tools.postag.POSSample;
+import opennlp.tools.postag.POSTaggerME;
 import opennlp.tools.tokenize.SimpleTokenizer;
 import opennlp.tools.tokenize.TokenizerME;
 import opennlp.tools.tokenize.TokenizerModel;
@@ -14,16 +17,30 @@ import java.io.InputStream;
 public class Main {
     public static void main(String[] args) {
         try {
-            tokenize();
+            String sentence = "This is a test of OpenNLP Tokenization. I'm testing some methods. \n Now i want to tokenize Mr Brown as a single token.\n Testing aren't, can't, mustn't, i'd better...";
+            System.out.println("I'm testing OpenNLP Tokenizers.\n The sentence is: ["+ sentence+ "]");
+            tokenizeSimple(sentence);
+            tokenizeWhiteSpace(sentence);
+            tokenizeEn(sentence);
+            String sentenceIt = "Questa è una prova di tokenizzazione in italiano.\n" +
+                    " Cantami, o Diva, del pelide Achille\n" +
+                    "l'ira funesta che infiniti addusse lutti\n" +
+                    "agli Achei, molte anzi tempo all'Orco\n" +
+                    "generose travolse alme d'eroi,\n" +
+                    "e di cani e d'augelli orrido pasto\n" +
+                    "lor salme abbandonò (così di Giove\n" +
+                    "l'alto consiglio s'adempìa), da quando\n" +
+                    "primamente disgiunse aspra contesa\n" +
+                    "il re de' prodi Atride e il divo Achille";
+            String[] tokensIt= tokenizeIt(sentenceIt);
+            posTaggerIt(tokensIt,sentenceIt);
+
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    private static void tokenize() throws InvalidFormatException, IOException{
-        String sentence = "This is a test of OpenNLP Tokenization. I'm testing some methods. \n Now i want to tokenize Mr Brown as a single token.\n Testing aren't, can't, mustn't, i'd better...";
-        System.out.println("I'm testing OpenNLP Tokenizers.\n The sentence is: ["+ sentence+ "]");
-
+    private static void tokenizeSimple(String sentence) throws InvalidFormatException, IOException{;
         /*---------------------------SIMPLE TOKENIZER-----------------------------------*/
         System.out.println("\n\n-------------------------------SIMPLE TOKENIZER------------------------------------");
         SimpleTokenizer tokenizer = SimpleTokenizer.INSTANCE;
@@ -33,6 +50,8 @@ public class Main {
         for(String token : tokens)
             System.out.print(token+ "|");
 
+    }
+    private static void tokenizeWhiteSpace(String sentence) throws InvalidFormatException, IOException{
         /*---------------------------WHITESPACE TOKENIZER--------------------------------*/
         System.out.println("\n\n-----------------------------WHITESPACE TOKENIZER----------------------------------");
 
@@ -45,12 +64,14 @@ public class Main {
         //Printing the tokens
         for(String token : tokensW)
             System.out.print(token+"|");
+    }
+    private static void tokenizeEn(String sentence) throws InvalidFormatException, IOException{
         /*----------------------------ENGLISH TOKENIZER----------------------------------*/
         System.out.println("\n\n-------------------------------ENGLISH TOKENIZER----------------------------------");
         //Loading the Tokenizer model
         InputStream inputStream = new FileInputStream("src/opennlp-models/en-token.bin");
         TokenizerModel tokenModel = new TokenizerModel(inputStream);
-
+        inputStream.close();
         //Instantiating the TokenizerME class
         TokenizerME tokenizerEN = new TokenizerME(tokenModel);
 
@@ -60,22 +81,13 @@ public class Main {
         //Printing the tokens
         for(String token : tokensEN)
             System.out.print(token+ "|");
-
-        String sentenceIt = "Questa è una prova di tokenizzazione in italiano.\n" +
-                " Cantami, o Diva, del pelide Achille\n" +
-                "l'ira funesta che infiniti addusse lutti\n" +
-                "agli Achei, molte anzi tempo all'Orco\n" +
-                "generose travolse alme d'eroi,\n" +
-                "e di cani e d'augelli orrido pasto\n" +
-                "lor salme abbandonò (così di Giove\n" +
-                "l'alto consiglio s'adempìa), da quando\n" +
-                "primamente disgiunse aspra contesa\n" +
-                "il re de' prodi Atride e il divo Achille";
-        inputStream.close();
-        System.out.println("I'm testing OpenNLP Tokenizers for Italian language.\n The sentence is: ["+ sentenceIt+ "]");
-
+    }
+    private static String[] tokenizeIt(String sentenceIt) throws InvalidFormatException, IOException{
         /*----------------------------ITALIAN TOKENIZER----------------------------------*/
         System.out.println("\n\n-------------------------------ITALIAN TOKENIZER----------------------------------");
+
+        System.out.println("I'm testing OpenNLP Tokenizers for Italian language.\n The sentence is: ["+ sentenceIt+ "]\n");
+
         //Loading the Tokenizer model
         InputStream inputStreamIt = new FileInputStream("src/opennlp-models/it-token.bin");
         TokenizerModel tokenModelIt = new TokenizerModel(inputStreamIt);
@@ -85,9 +97,50 @@ public class Main {
 
         //Tokenizing the given raw text
         String tokensIt[] = tokenizerIt.tokenize(sentenceIt);
-
+        inputStreamIt.close();
         //Printing the tokens
-        for(String token : tokensIt)
-            System.out.print(token+ "|");
+        for(String token : tokensIt) {
+            System.out.print(token + "|");
+            if(token.contains(".") || token.contains(","))
+                System.out.println();
+        }
+        return tokensIt;
+    }
+
+    public static void posTaggerIt(String[] tokens, String sentence) throws IOException {
+        /*----------------------------ITALIAN POS TAGGER----------------------------------*/
+        System.out.println("\n\n-------------------------------ITALIAN POS TAGGER----------------------------------");
+        //Loading Parts of speech-maxent model
+        InputStream inputStream = new FileInputStream("src/opennlp-models/it-pos-maxent.bin");
+        POSModel model = new POSModel(inputStream);
+
+        //Instantiating POSTaggerME class
+        POSTaggerME tagger = new POSTaggerME(model);
+
+//        String sentence = "Hi welcome to Tutorialspoint";
+//
+//        //Tokenizing the sentence using WhitespaceTokenizer class
+//        WhitespaceTokenizer whitespaceTokenizer= WhitespaceTokenizer.INSTANCE;
+//        String[] tokens = whitespaceTokenizer.tokenize(sentence);
+
+        System.out.println("\n Tagging using italian tokenizer\n");
+        //Generating tags given the tokens created by tokenizeIt()
+        String[] tags = tagger.tag(tokens);
+        //Instantiating the POSSample class
+        POSSample sample = new POSSample(tokens, tags);
+        System.out.println(sample.toString());
+
+        System.out.println("\n Tagging using whitespace tokenizer\n");
+
+        //Tokenizing the sentence using WhitespaceTokenizer class
+        WhitespaceTokenizer whitespaceTokenizer= WhitespaceTokenizer.INSTANCE;
+        String[] tokensWs = whitespaceTokenizer.tokenize(sentence);
+
+        //Generating tags given the tokens created by tokenizeIt()
+        String[] tagsWs = tagger.tag(tokensWs);
+        //Instantiating the POSSample class
+        POSSample sampleWs = new POSSample(tokensWs, tagsWs);
+        System.out.println(sampleWs.toString());
+
     }
 }

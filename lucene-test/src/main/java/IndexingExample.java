@@ -26,8 +26,8 @@ public class IndexingExample {
         FSDirectory dir = FSDirectory.open(Paths.get(INDEX_DIR));
         /*IndexWriterConfig: Permette il setting INIZIALE di IndexWriter. Dopo essere stato creato, IndexWriter può essere modificato solo dal suo metodo getConfig()
                              In esso si inizializza un Analyzer, un oggetto che assieme alle sue sottoclassi (ad esempio StandardAnalyzers e StandardTokenizers),
-                             tokenizzano e filtrano gli elementi del testo. StandardTokenizer può essere sostituito con un altro tokenizer ( cercare corrispondenze
-                             di implementare OpenNLP che possiede moduli per la tokenizzazione in Italiano)-> Lucene possiede ItalianAnalyzer.*/
+                             tokenizzano e filtrano gli elementi del testo. StandardTokenizer può essere sostituito con un altro tokenizer ( cercare di implementare
+                             OpenNLP che possiede moduli per la tokenizzazione in Italiano)-> Lucene possiede ItalianAnalyzer.*/
         IndexWriterConfig config = new IndexWriterConfig(new StandardAnalyzer());
         /*IndexWriter: Crea e mantiene un indice. L'indice è mantenuto nella directory dir, e utilizza la configurazione del suo relativo IndexWriterConfig*/
         IndexWriter writer = new IndexWriter(dir, config);
@@ -39,7 +39,7 @@ public class IndexingExample {
         /*FieldType: descrive le proprietà di un Field
         *            Metodi:    -.setIndexOptions: setta il tipo di opzione di indicizzazione.
         *                         IndexOption è la classe con le costanti che determinano cosa viene indicizzato
-        *                         nel Field(Documenti, termini frequenti, ?posizioni?, ?offsets?
+        *                         nel Field(Documenti, termini frequenti, ?posizioni?, ?offsets?)
         *                       -.setStored(boolean): flagga la possibilità di archiviare il Field
         *                       -.setTokenized(): flagga la possibilità di analizzare, e di conseguenza tokenizzare il field
         *                       -.setOmitNorms(): DA RIVEDERE, probabilmente riguarda l'ottimizzazione*/
@@ -67,10 +67,20 @@ public class IndexingExample {
         FieldType ratingType = new FieldType();
         ratingType.setDimensions(1, Integer.BYTES);// DA RIVEDERE
         ratingType.setStored(true);
+        /*Document: unità di indicizzazione e ricerca di Lucene. Contiene dei Field.
+                    Metodi:     -.add(new Field(nomeField, valoreField, FieldType))
+                                -.get("nomeField"): ritorna il valore del field
 
+                    Note: - posso aggiungere field con lo stesso nome (es. il libro può essere disponibile in diversi formati (es. Kindle, tascabile),
+                           quindi avrò più file con il nome "Formato" e valore "Nome Formato"
+
+                   DA VEDERE: Tutti i tipi di FIELD
+         */
         Document doc1 = new Document();
         doc1.add(new StringField("asin", "B005XSS8VC", Field.Store.YES));
+        //SortedSetValueField crea un Field che può essere usato per l'ordinamento del documento(CHIAVI di ricerca)??  Cos'è Bytes Ref?
         doc1.add(new SortedSetDocValuesField("format", new BytesRef("kindle")));
+        //Field : -instanziamento tradizionale -> new Field(nomeField, valoreField, FieldType)
         Field titleField1 = new Field("title", "What's New in Java 7", titleType);
         titleField1.setBoost(3.0f);
         doc1.add(titleField1);
@@ -176,7 +186,11 @@ public class IndexingExample {
 
     private IndexSearcher createSearcher() throws IOException {
         Directory dir = FSDirectory.open(Paths.get(INDEX_DIR));
+        /*IndexReader: classe astratta che implementa un'interfaccia che permette di accedere in lettura all'indice.
+                       Nota: si può accedere all'indice da una directory fisica contenente l'indice, oppure dall'index writer.
+         */
         IndexReader reader = DirectoryReader.open(dir);
+        /*IndexSearcher: permetta la ricerca nell'indice. Si istanzia passando il parametro IndexReader.*/
         IndexSearcher searcher = new IndexSearcher(reader);
         return searcher;
     }
@@ -184,6 +198,16 @@ public class IndexingExample {
     public static void main(String[] args) throws IOException, ParseException {
         // indexing
         IndexingExample app = new IndexingExample();
+        /*IndexWriter: Crea l'indice, inserisce i documenti nell'indice e ottimizza quest'ultimo
+        *              Metodi:  -.deleteAll(): cancella tutti i documenti dentro l'indice
+        *                       -.addDocuments(List<Document>): aggiunge la lista di documenti
+        *                       -.deleteDocuments(oggettoQuery): cancella tutti i documenti che soddisfano la query immessa
+        *                         Nota: Query è l'oggetto generico, esistono diversi tipi di query (TermQuery,BooleanQuery, PhraseQuery ecc.)
+        *                       -.commit(): consegna tutte le modifiche fatte all'indice (aggiunta, rimozione documenti),
+        *                                   sincronizzando tutte le reference del file dell'indice.
+        *                         Nota: l'indice è contenuto in un file, il metodo .commit() permette di poterlo aggiornare in maniera sicura
+        *                       -.
+        * */
         IndexWriter writer = app.createWriter();
         writer.deleteAll();
         List<Document> docs = app.createDocs();
@@ -195,13 +219,33 @@ public class IndexingExample {
 
         // search
         IndexSearcher searcher = app.createSearcher();
-        QueryParser qp = new QueryParser("title", new StandardAnalyzer());
+        /*QueryParser: classe che si occupa dell'interpretazione delle query. Nella versione classica, QueryParser è
+                       ottimizzato nell'interpretazione di "human-entered-text" e non "program-generated-text".
+                       Utilizza gli strumenti della classe Analyzer per creare un oggetto Query.
 
+                       Metodi:      -.parse("Query"): restituisce trasforma una stringa di ricerca in un oggetto di tipo Query.
+         */
+        QueryParser qp = new QueryParser("title", new StandardAnalyzer());
+        /*Query: classe astratta che rappresenta la query riconoscibile da lucene. Esistono diversi tipi di Query
+                 (TermQuery, PhraseQuery ecc)
+
+         */
         Query q1 = qp.parse("java");
+        /*Il metodo di  IndexSearcher .search(nomeQuery,int) restituisce un oggetto TopDocs
+         TopDocs: classe contenente i risultati di ricerca (hits)
+                  Attributi:    -scoreDocs: conviene una collezione di oggetti ScoreDoc
+                                -totalHits: numero di risultati ricerca
+         */
+
         TopDocs hits = searcher.search(q1, 10);
         System.out.println(hits.totalHits + " docs found for the query \"" + q1.toString() + "\"");
         int num = 0;
         for (ScoreDoc sd : hits.scoreDocs) {
+            /*ScoreDoc: classe che rappresenta il generico risultato di ricerca
+                        Attributi: -doc: ID del documento a cui corrisponde l'hit. Permette di poter recuperare l'oggetto
+                                         documento a cui corrisponde l'hit, attraverso il metodo di IndexSearcher .doc(int).
+                                   -score: punteggio di rilevanza del documento alla query
+             */
             Document d = searcher.doc(sd.doc);
             System.out.println(String.format("#%d: %s (rating=%s)", ++num, d.get("title"), d.get("rating_display")));
         }
@@ -227,7 +271,10 @@ public class IndexingExample {
         }
 
         System.out.println("");
-        // PointValues で範囲検索する
+        /*Query combinate: le query possono essere combinate attraverso BooleanQuery: il suo attributo builder permette
+        *                  attraverso al metodo .add(nomeQuery, BoleanClause.Occur.**** ) di aggiungere le query e la
+        *                  loro rilevanza nel matching e nello score*/
+        //TermQuery: classe che crea una query che cerca un match field e valore del field.
         TermQuery tq = new TermQuery(new Term("title", "java"));
         Query prq = IntPoint.newRangeQuery("rating", 3, Integer.MAX_VALUE);
         BooleanQuery.Builder builder = new BooleanQuery.Builder();
