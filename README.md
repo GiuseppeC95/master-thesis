@@ -19,6 +19,7 @@ The repository uses Maven for building and running the code. To get started, you
 	`mvn clean package`
 	
 ## Changelog
+*06/04/2017* - **UPDATED** tokenizer-test *-Added*  Stemmer and SentenceDetector  for italian
 *30/03/2017* - **UPDATED** tokenizer-test *-Added* English and Italian tokenizer  
 *27/03/2017* - **ADDED** lucene-test with comments (work in progress)  
 *23/03/2017* - **ADDED** tokenizer-test with SimpleTokenizer and WhiteSpaceTokenizer 
