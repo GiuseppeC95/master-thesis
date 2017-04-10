@@ -1,2 +1,6 @@
 /**/target
 /**/.idea
+/**/**/test
+/lucene-test/lucene-test.iml
+/tokenizer-test/tokenizer-test.iml
+/tokenizer-test/src/opennlp-models/*
