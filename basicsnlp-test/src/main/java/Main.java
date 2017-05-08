@@ -118,7 +118,7 @@ public class Main {
         /*----------------------------ITALIAN POS TAGGER - MAXENT----------------------------------*/
         System.out.println("\n\n-------------------------------ITALIAN POS TAGGER - MAXENT----------------------------------");
         //Loading Parts of speech-maxent model
-        InputStream inputStream = new FileInputStream("src/opennlp-models/it-pos-paisa.bin");
+        InputStream inputStream = new FileInputStream("src/opennlp-models/it-pos-maxent.bin");
         POSModel model = new POSModel(inputStream);
 
         //Instantiating POSTaggerME class

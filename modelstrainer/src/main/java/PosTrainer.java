@@ -1,3 +1,4 @@
+import opennlp.tools.formats.ConllXPOSSampleStream;
 import opennlp.tools.postag.*;
 import opennlp.tools.util.*;
 
@@ -57,13 +58,21 @@ public class PosTrainer {
         //dataIn = new FileInputStream("train-corpus/paisa.annotated.CoNLL.utf8");
         try {
 
+            InputStreamFactory isf = new MarkableFileInputStreamFactory(new File(inCorpusFilePath));
+            //ObjectStream<String> lineStream = new PlainTextByLineStream(isf,"UTF-8");
+            ObjectStream<POSSample> sampleStream = new ConLLXPOSSampleStreamEdit(isf, Charset.forName("UTF-8"));
 
+            POSTaggerFactory factory = new POSTaggerFactory();
+            model = POSTaggerME.train("it", sampleStream, TrainingParameters.defaultParams(), factory);
+
+            /*
             InputStreamFactory isf = new MarkableFileInputStreamFactory(new File("it-pos-paisa.train"));
             ObjectStream<String> lineStream = new PlainTextByLineStream(isf,"UTF-8");
             ObjectStream<POSSample> sampleStream = new WordTagSampleStream(lineStream);
 
             POSTaggerFactory factory = new POSTaggerFactory();
             model = POSTaggerME.train("it", sampleStream, TrainingParameters.defaultParams(), factory);
+            */
             //dataIn = new FileInputStream("train-corpus/paisa.raw.utf8");
             /*
             ObjectStream<String> lineStream = new PlainTextByLineStream(new FileReader(inFile), "UTF-8");
