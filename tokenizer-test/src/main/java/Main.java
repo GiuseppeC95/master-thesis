@@ -118,7 +118,7 @@ public class Main {
         /*----------------------------ITALIAN POS TAGGER - MAXENT----------------------------------*/
         System.out.println("\n\n-------------------------------ITALIAN POS TAGGER - MAXENT----------------------------------");
         //Loading Parts of speech-maxent model
-        InputStream inputStream = new FileInputStream("src/opennlp-models/it-pos-maxent.bin");
+        InputStream inputStream = new FileInputStream("src/opennlp-models/it-pos-paisa.bin");
         POSModel model = new POSModel(inputStream);
 
         //Instantiating POSTaggerME class
@@ -206,8 +206,7 @@ public class Main {
         String provaSent="Questa è una prova, molto semplice. Sto provando OpenNLP Sentence detection, riuscirà a ad individuare le frasi? E se scrivessi dott. Rossi, Prof. Rivoira, o S.ra Rossi, li individua come frase?";
         InputStream modelStream = new FileInputStream("src/opennlp-models/it-sent.bin");
         SentenceModel modelSent = new SentenceModel(modelStream);
-        SentenceDetector detector =
-                new SentenceDetectorME(modelSent);
+        SentenceDetector detector =new SentenceDetectorME(modelSent);
         String[] result = detector.sentDetect(provaSent);
         for (int i = 0; i < result.length; i++) {
             System.out.println("Sentence: " + result[i]);

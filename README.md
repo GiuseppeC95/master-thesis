@@ -2,7 +2,8 @@
 
 This repository is used for researching and tools testing about text manipulation (tokenizing, chunking, parsing).  
 You will find these projects:  
-- **tokenizer-test**: a simple test of OpenNLP tokeninzing features (SimpleTokenizer, WhiteSpaceTokenizer, TokenizerME with english and italian modules)
+- **tokenizer-test**: a simple test of OpenNLP tokeninzing features (SimpleTokenizer, WhiteSpaceTokenizer, TokenizerME with english and italian modules)  
+- **modelstrainer**: a tool that creates OpeNLP modules, trained from a corpora  
 - **lucene-test**: a demo of lucene indexing and querying features with detailed comments about how the features works  
 
 ## Getting Started
