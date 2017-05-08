@@ -2,11 +2,11 @@
 /**/.idea
 /**/**/test
 /lucene-test/lucene-test.iml
-/tokenizer-test/tokenizer-test.iml
+/basicsnlp-test/tokenizer-test.iml
 /entity-test/entity-test.iml
 /modelstrainer/modelstrainer.iml
 /modelstrainer/it-pos-paisa.train
 /modelstrainer/it-pos-paisa.bin
 /modelstrainer/train-corpus/*
-/tokenizer-test/src/opennlp-models/*
+/basicsnlp-test/src/opennlp-models/*
 
