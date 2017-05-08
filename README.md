@@ -2,7 +2,7 @@
 
 This repository is used for researching and tools testing about text manipulation (tokenizing, chunking, parsing).  
 You will find these projects:  
-- **tokenizer-test**: a simple test of OpenNLP tokeninzing features (SimpleTokenizer, WhiteSpaceTokenizer, TokenizerME with english and italian modules)  
+- **basicsnlp-test**: a simple test of OpenNLP tokeninzing features (SimpleTokenizer, WhiteSpaceTokenizer, TokenizerME with english and italian modules)  
 - **modelstrainer**: a tool that creates OpeNLP modules, trained from a corpora  
 - **lucene-test**: a demo of lucene indexing and querying features with detailed comments about how the features works  
 
@@ -20,7 +20,9 @@ The repository uses Maven for building and running the code. To get started, you
 	`mvn clean package`
 	
 ## Changelog
-*06/04/2017* - **UPDATED** tokenizer-test *-Added*  Stemmer and SentenceDetector  for italian
+*08/05/2017* - **RENAMED** tokenizer-test folder to basicsnlp-test  
+*04/05/2017* - **ADDED** modelstrainer  
+*06/04/2017* - **UPDATED** tokenizer-test *-Added*  Stemmer and SentenceDetector  for italian  
 *30/03/2017* - **UPDATED** tokenizer-test *-Added* English and Italian tokenizer  
 *27/03/2017* - **ADDED** lucene-test with comments (work in progress)  
 *23/03/2017* - **ADDED** tokenizer-test with SimpleTokenizer and WhiteSpaceTokenizer 
