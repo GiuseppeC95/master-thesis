@@ -12,10 +12,12 @@ import java.nio.charset.Charset;
 public class PosTrainer {
     private String inCorpusFilePath;
     private String outModelPath;
+    private boolean modelExtract;
 
     public PosTrainer(String inCorpusFilePath,String outputName) {
         this.inCorpusFilePath= inCorpusFilePath;
         this.outModelPath= outputName;
+        this.modelExtract=false;
     }
     public void convertFile(){
         Charset charset = Charset.forName("UTF-8");
@@ -43,11 +45,13 @@ public class PosTrainer {
 //                System.out.println(line);
 //                line=reader.readLine();
             }
+            modelExtract=true;
             writer.close();
             reader.close();
 
         } catch (IOException e) {
             e.printStackTrace();
+            modelExtract=false;
         }
     }
 
@@ -56,14 +60,16 @@ public class PosTrainer {
 
         InputStream dataIn = null;
         //dataIn = new FileInputStream("train-corpus/paisa.annotated.CoNLL.utf8");
-        try {
 
-            InputStreamFactory isf = new MarkableFileInputStreamFactory(new File(inCorpusFilePath));
-            //ObjectStream<String> lineStream = new PlainTextByLineStream(isf,"UTF-8");
-            ObjectStream<POSSample> sampleStream = new ConLLXPOSSampleStreamEdit(isf, Charset.forName("UTF-8"));
+            try {
 
-            POSTaggerFactory factory = new POSTaggerFactory();
-            model = POSTaggerME.train("it", sampleStream, TrainingParameters.defaultParams(), factory);
+                InputStreamFactory isf = new MarkableFileInputStreamFactory(new File(inCorpusFilePath));
+                System.out.println("Inizio training");
+                //ObjectStream<String> lineStream = new PlainTextByLineStream(isf,"UTF-8");
+                ObjectStream<POSSample> sampleStream = new ConLLXPOSSampleStreamEdit(isf, Charset.forName("UTF-8"));
+
+                POSTaggerFactory factory = new POSTaggerFactory();
+                model = POSTaggerME.train("it", sampleStream, TrainingParameters.defaultParams(), factory);
 
             /*
             InputStreamFactory isf = new MarkableFileInputStreamFactory(new File("it-pos-paisa.train"));
@@ -73,54 +79,54 @@ public class PosTrainer {
             POSTaggerFactory factory = new POSTaggerFactory();
             model = POSTaggerME.train("it", sampleStream, TrainingParameters.defaultParams(), factory);
             */
-            //dataIn = new FileInputStream("train-corpus/paisa.raw.utf8");
+                //dataIn = new FileInputStream("train-corpus/paisa.raw.utf8");
             /*
             ObjectStream<String> lineStream = new PlainTextByLineStream(new FileReader(inFile), "UTF-8");
             ObjectStream<POSSample> sampleStream = new WordTagSampleStream(lineStream);
 
             model = POSTaggerME.train("it", sampleStream, TrainingParameters.defaultParams(), null);
             */
-        }
-        catch (IOException e) {
-            // Failed to read or parse training data, training failed
-            e.printStackTrace();
-        }
-
-        finally {
-            if (dataIn != null) {
-                try {
-                    dataIn.close();
-                    System.out.println("Modello estratto");
-                }
-                catch (IOException e) {
-                    // Not an issue, training already finished.
-                    // The exception should be logged and investigated
-                    // if part of a production system.
-                    e.printStackTrace();
-                }
-            }
-        }
-
-        OutputStream modelOut = null;
-        try {
-            modelOut = new BufferedOutputStream(new FileOutputStream(new File(outModelPath)));
-            model.serialize(modelOut);
-        }
-        catch (IOException e) {
-            // Failed to save model
-            e.printStackTrace();
-        }
-        finally {
-            if (modelOut != null) {
-                try {
-                    modelOut.close();
-                    System.out.println("Modello creato");
-                } catch (IOException e) {
-                    // Failed to correctly save model.
-                    // Written model might be invalid.
-                    e.printStackTrace();
+            } catch (IOException e) {
+                // Failed to read or parse training data, training failed
+                modelExtract=false;
+                e.printStackTrace();
+            } finally {
+                if (dataIn != null) {
+                    try {
+                        dataIn.close();
+                        modelExtract=true;
+                        System.out.println("Modello di training estratto");
+                    } catch (IOException e) {
+                        // Not an issue, training already finished.
+                        // The exception should be logged and investigated
+                        // if part of a production system.
+                        modelExtract=false;
+                        e.printStackTrace();
+                    }
                 }
             }
-        }
+        if(modelExtract) {
+            OutputStream modelOut = null;
+            try {
+                System.out.println("Creazione modello");
+                modelOut = new BufferedOutputStream(new FileOutputStream(new File(outModelPath)));
+                model.serialize(modelOut);
+            } catch (IOException e) {
+                // Failed to save model
+                e.printStackTrace();
+            } finally {
+                if (modelOut != null) {
+                    try {
+                        modelOut.close();
+                        System.out.println("Modello creato");
+                    } catch (IOException e) {
+                        // Failed to correctly save model.
+                        // Written model might be invalid.
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }else
+            System.out.println("Creazione modello fallita");
     }
 }

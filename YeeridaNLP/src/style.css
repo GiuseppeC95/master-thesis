@@ -1,0 +1,50 @@
+#head{
+   /* -fx-background-color: #0054ff; */
+    -fx-background-color: black;
+}
+
+#body #start{
+    -fx-background-color: black;
+    -fx-text-fill: whitesmoke;
+    -fx-font-size: 20px;
+    /*-fx-text-alignment: center;*/
+}
+#body #start:pressed{
+    -fx-background-color: rgba(0,0,0,0.9);
+}
+#title{
+    -fx-font-size: 20px;
+}
+AnchorPane{
+    -fx-background-color:#f1f1f1;
+}
+#inputText{
+    -fx-font-size: 15px;
+}
+#textTokenizer{
+    -fx-font-size: 15px;
+}
+#outPos .label{
+    -fx-font-size: 15px;
+    -fx-text-fill: whitesmoke;
+    -fx-padding: 2 4 2 4;
+    -fx-text-alignment: center;
+    -fx-background-color:rgba(0,96,166,0.7);
+    -fx-background-radius: 10;
+}
+#outPos .label:hover{
+    -fx-background-color:rgba(0,96,160,1.0);
+}
+#outPos .label:pressed{
+    -fx-scale-y: 0.9;
+    -fx-scale-x: 0.9;
+}
+#titleTag{
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+
+}
+#body{
+    /*-fx-background-color: #fafafa;*/
+    -fx-background-color:#d7d7d7;
+}

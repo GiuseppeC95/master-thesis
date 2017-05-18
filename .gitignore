@@ -1,12 +1,22 @@
 /**/target
 /**/.idea
 /**/**/test
+/**/out
+_linux/laf.xml
+_linux/path.macros.xml
+codestyles/Default.xml
+colors.scheme.xml
+colors.scheme.xml
+editor.xml
 /lucene-test/lucene-test.iml
 /basicsnlp-test/tokenizer-test.iml
 /entity-test/entity-test.iml
 /modelstrainer/modelstrainer.iml
 /modelstrainer/it-pos-paisa.train
 /modelstrainer/it-pos-paisa.bin
+/YeeridaNLP/YeeridaNLP.iml
+/YeeridaNLP/src/resources/*
+/YeeridaNLP/src/opennlp-models/*
 /modelstrainer/train-corpus/*
 /basicsnlp-test/src/opennlp-models/*
 
